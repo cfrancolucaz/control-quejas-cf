@@ -1,0 +1,121 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button *ngIf="service.isLogin()" mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+    <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+  </button>
+
+  <h1 class="example-app-name">Quejas CFranco</h1>
+
+  <span class="example-spacer"></span>
+
+  <button *ngIf="service.isLogin()" mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="service.logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Cerrar Sesión</span>
+    </button>
+  </mat-menu>
+
+  <div *ngIf="!service.isLogin()">
+    <button
+      mat-icon-button
+      matTooltip="Acceder al sistema"
+      class="example-icon favorite-icon"
+      routerLink="/login"
+    >
+      <mat-icon>person</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      matTooltip="Poner Queja"
+      class="example-icon favorite-icon"
+      routerLink="/quejas"
+    >
+      <mat-icon>create</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-sidenav-container">
+  <mat-sidenav opened="false" #sidenav style="width: 200px">
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/filtroquejas"
+      style="cursor: pointer"
+    >
+      <mat-icon>label</mat-icon>
+      <span>Inicio</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/regiones"
+      style="cursor: pointer"
+    >
+      <mat-icon>label</mat-icon>
+      <span>Regiones</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/departamentos"
+      style="cursor: pointer"
+    >
+      <mat-icon>label</mat-icon>
+      <span>Departamentos</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/municipios"
+      style="cursor: pointer"
+    >
+      <mat-icon>label</mat-icon>
+      <span>Municipios</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/comercios"
+      style="cursor: pointer"
+    >
+      <mat-icon>label</mat-icon>
+      <span>Comercios</span>
+    </button>
+
+    <mat-divider></mat-divider>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/sucursales"
+      style="cursor: pointer"
+    >
+      <mat-icon>label</mat-icon>
+      <span>Sucursales</span>
+    </button>
+
+    <mat-divider></mat-divider>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/usuarios"
+      style="cursor: pointer"
+    >
+      <mat-icon>label</mat-icon>
+      <span>Usuarios</span>
+    </button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="container-dashboard">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

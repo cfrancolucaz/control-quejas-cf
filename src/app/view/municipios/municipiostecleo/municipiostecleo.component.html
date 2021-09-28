@@ -1,0 +1,37 @@
+<div class="main-div">
+  <mat-card class="example-card">
+    <mat-card-title>Municipios Tecleo</mat-card-title>
+    <mat-card-subtitle>ingreso de municipios</mat-card-subtitle>
+    <mat-card-content>
+      <div>
+        <mat-form-field appearance="standard" [style.width.%]="100">
+          <mat-label>Seleccione Departamento</mat-label>
+          <mat-select [(ngModel)]="cls.departamentosId" required>
+            <mat-option *ngFor="let c of _datosDepartamentos" [value]="c.id">
+              {{ c.descripcion }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard" [style.width.%]="100">
+          <mat-label>Descripcion</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ingrese la descripcion de region"
+            [(ngModel)]="cls.descripcion"
+            requiere
+          />
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="cerrar()">
+        Cancelar
+      </button>
+      <button mat-raised-button color="primary" (click)="grabar()">
+        Grabar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

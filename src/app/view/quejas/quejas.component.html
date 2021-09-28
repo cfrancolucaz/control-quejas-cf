@@ -1,0 +1,77 @@
+<div class="main-div">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Ingrese su queja</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="standard" [style.width.%]="100">
+        <mat-label>Seleccione Departamento</mat-label>
+        <mat-select
+          [(ngModel)]="departamentosId"
+          (selectionChange)="selectionChangeDepartamento()"
+          required
+        >
+          <mat-option *ngFor="let c of _datosDepartamentos" [value]="c.id">
+            {{ c.descripcion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" [style.width.%]="100">
+        <mat-label>Seleccione Municipio</mat-label>
+        <mat-select
+          [(ngModel)]="municipiosId"
+          (selectionChange)="selectionChangeMunicipio()"
+          required
+        >
+          <mat-option *ngFor="let c of _datosMunicipios" [value]="c.id">
+            {{ c.descripcion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" [style.width.%]="100">
+        <mat-label>Seleccione Comercio</mat-label>
+        <mat-select
+          [(ngModel)]="comerciosId"
+          (selectionChange)="selectionChangeComercio()"
+          required
+        >
+          <mat-option *ngFor="let c of _datosComercios" [value]="c.id">
+            {{ c.descripcion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" [style.width.%]="100">
+        <mat-label>Seleccione Sucursal</mat-label>
+        <mat-select [(ngModel)]="sucursalesId" required>
+          <mat-option *ngFor="let c of _datosSucursales" [value]="c.id">
+            {{ c.descripcion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" [style.width.%]="100">
+        <mat-label>Ingrese Queja</mat-label>
+        <textarea
+          matInput
+          [(ngModel)]="cls.descripcion"
+          placeholder="Explique los mas breve y conciso posible su queja"
+        ></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="grabar()"
+        [style.width.%]="100"
+      >
+        <span>GRABAR</span>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

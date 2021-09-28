@@ -1,0 +1,19 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url("../../../assets/umg_icon.png");
+  background-size: cover;
+}
+
+.main-div {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

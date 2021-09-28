@@ -1,0 +1,69 @@
+<section>
+  <div class="example-label"><h2>Quejas</h2></div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <mat-form-field
+        appearance="standard"
+        [style.width.%]="100"
+        [style.margin-right.%]="2"
+        [style.margin-left.%]="2"
+      >
+        <mat-label>Seleccione Region</mat-label>
+        <mat-select
+          [(ngModel)]="regionesId"
+          (selectionChange)="selectionChangeRegion()"
+        >
+          <mat-option>Todos</mat-option>
+          <mat-option *ngFor="let c of _datosRegion" [value]="c.id">
+            {{ c.descripcion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="standard"
+        [style.width.%]="100"
+        [style.margin-right.%]="2"
+        [style.margin-left.%]="2"
+      >
+        <mat-label>Seleccione Departamento</mat-label>
+        <mat-select [(ngModel)]="departamentosId">
+          <mat-option>Todos</mat-option>
+          <mat-option *ngFor="let c of _datosDepartamentos" [value]="c.id">
+            {{ c.descripcion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="example-button-container">
+        <button
+          mat-fab
+          color="primary"
+          style="float: right"
+          routerLink="/quejas"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button mat-fab color="primary" style="float: right" (click)="buscar()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div>
+  <mat-card style="margin: 1em" *ngFor="let element of _datos">
+    <mat-card-header>
+      <mat-card-title>{{ "Queja: " + element.descripcion }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div></div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <mat-card-subtitle>{{ element.fecha }}</mat-card-subtitle>
+    </mat-card-actions>
+  </mat-card>
+</div>

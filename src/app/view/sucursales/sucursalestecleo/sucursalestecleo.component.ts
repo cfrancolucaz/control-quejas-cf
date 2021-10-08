@@ -32,13 +32,10 @@ export class SucursalestecleoComponent implements OnInit {
     this.service.getComerciosId(this.cls.comerciosId).subscribe(data=>{
       this.cls.departamentosId = data[0].id;
       this.cls.municipiosId = data[0].municipiosId;
-      console.log("GetComercios")
-  
+
       this.service.getMunicipioId(data[0].municipiosId).subscribe(data=>{
-        console.log("GetMunicipios")
- 
+
         this.service.getDepartamentosId(data[0].departamentosId).subscribe(data =>{
-          console.log("GetDepartamentos")
 
           this.cls.regionesId = data[0].regionesId;
 

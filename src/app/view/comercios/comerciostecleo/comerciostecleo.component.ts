@@ -28,7 +28,7 @@ export class ComerciostecleoComponent implements OnInit {
   }
 
   grabar(){
-
+    console.log(this.cls)
     if(this.cls.id ==0){
       this.service.postComercios(this.cls).subscribe(data =>{
         this.snackBar.open('Registro grabado', '', {

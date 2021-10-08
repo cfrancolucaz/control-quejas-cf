@@ -49,7 +49,7 @@ export class QuejasComponent implements OnInit {
        ){
 
         
-    
+        
         this.service.getDepartamentosId(this.departamentosId).subscribe(data=>{
           
           this.cls.regionesId = data[0].regionesId
@@ -97,7 +97,7 @@ export class QuejasComponent implements OnInit {
   }
 
   selectionChangeComercio(){
-    this.service.getSucursalComerciosId(this.municipiosId).subscribe(data=>{
+    this.service.getSucursalComerciosId(this.comerciosId).subscribe(data=>{
       this._datosSucursales = data;
     })
   }
